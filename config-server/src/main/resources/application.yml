@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: false
+        git:
+          uri: git_uri
+          search-paths: paths
+          username: username
+          password: password

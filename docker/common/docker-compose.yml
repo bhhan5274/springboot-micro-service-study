@@ -1,0 +1,19 @@
+version: '2'
+services:
+  eurekaserver:
+    image: bhhan87/study-eurekaserver:v1.0.0
+    ports:
+      - "8761:8761"
+    environment:
+      PORT: "8761"
+  configserver:
+    image: bhhan87/study-configserver:v1.0.0
+    ports:
+      - "8888:8888"
+    environment:
+      EUREKA_SERVER_PORT: "8761"
+      PORT: "8888"
+      CONFIG_SERVER_GIT_URI: "https://github.com/bhhan5274/study-repo.git"
+      CONFIG_SERVER_GIT_SEARCH_PATHS: "order,shipping,gateway"
+      CONFIG_SERVER_USERNAME: "username"
+      CONFIG_SERVER_PASSWORD: "password"
