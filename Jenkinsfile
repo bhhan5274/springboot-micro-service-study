@@ -12,7 +12,7 @@ node {
     }
     
     stage('docker build and push'){
-        docker.withRegistry('https://registry.hub.docker.com/', 'dockerHub'){
+        docker.withRegistry('https://registry.hub.docker.com/', 'dockerHub').inside {
             echo "Hello World"
         }
     }
