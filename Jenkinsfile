@@ -8,9 +8,9 @@ node {
         checkout scm
     }
     stage('test and package'){
-        sh 'mvn clean package'
+        sh "'${mvnHome}/bin/mvn' clean package"
     }    
     stage('docker build and push'){
-        sh 'mvn clean'
+        sh "'${mvnHome}/bin/mvn' clean"
     }
 }
