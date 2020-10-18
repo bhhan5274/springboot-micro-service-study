@@ -12,8 +12,7 @@ node {
     }
     
     stage('docker build and push'){
-        myMavenContainer.inside {
-            sh "docker login -u ${params.dockerhub_id} -p ${params.dockerhub_password}"
+        docker.withRegistry('http://index.docker.io/v1/', 'dockerHub'){
             sh 'mvn docker:build -DpushImage'
         }
     }
