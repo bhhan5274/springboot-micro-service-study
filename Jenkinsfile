@@ -12,7 +12,6 @@ node {
     }
     
     stage('docker build and push'){
-        sh 'echo "Hello World"'
         sh 'mvn clean'
     }
 }
