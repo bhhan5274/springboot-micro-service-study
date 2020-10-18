@@ -12,7 +12,7 @@ node {
     }
     
     stage('docker build and push'){
-        docker.withRegistry('http://index.docker.io/v1/', 'dockerHub'){
+        docker.withRegistry('https://index.docker.io/v1/', 'dockerHub'){
             sh 'mvn docker:build -DpushImage'
         }
     }
