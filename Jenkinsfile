@@ -6,7 +6,7 @@ node {
     }
 
     stage('test and package'){
-        myMavenContainer.inside("-v ${env.HOME}/.m2:/root/.m2"){
+        myMavenContainer.inside {
             sh 'mvn clean package'
         }
     }
