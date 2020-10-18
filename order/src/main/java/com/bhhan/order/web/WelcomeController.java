@@ -21,4 +21,9 @@ public class WelcomeController {
     public String welcome(){
         return "I'm Order -> " + restTemplateClient.getWelcomeMessage();
     }
+    
+    @GetMapping("jenkins")
+    public String jenkinsHello(){
+        return "Jenkins Hello World!!!";
+    }
 }
