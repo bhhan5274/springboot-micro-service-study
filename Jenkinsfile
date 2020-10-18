@@ -10,4 +10,11 @@ node {
             sh 'mvn clean package'
         }
     }
+    
+    stage('docker build and push'){
+        myMavenContainer.inside {
+            sh 'docker login -u ${params.dockerhub_id} -p ${params.dockerhub_password}'
+            sh 'mvn docker:build -DpushImage'
+        }
+    }
 }
