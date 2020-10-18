@@ -11,6 +11,7 @@ node {
         sh "'${mvnHome}/bin/mvn' clean package"
     }    
     stage('docker build and push'){
-        sh "'${mvnHome}/bin/mvn' clean"
+        sh "docker login -u ${params.dockerhub_id} -p ${params.dockerhub_password}"
+        sh "'${mvnHome}/bin/mvn' docker:build -DpushImage"
     }
 }
