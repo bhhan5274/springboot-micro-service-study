@@ -13,7 +13,7 @@ node {
     
     stage('docker build and push'){
         docker.withRegistry('https://registry.hub.docker.com/', 'dockerHub'){
-            sh 'mvn clean'
+            echo "Hello World"
         }
     }
 }
