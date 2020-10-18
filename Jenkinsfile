@@ -13,7 +13,7 @@ node {
     
     stage('docker build and push'){
         myMavenContainer.inside {
-            sh 'chmod 666 /var/run/docker.sock'
+            sh 'sudo usermod -a -G docker $USER'
             sh "docker login -u ${params.dockerhub_id} -p ${params.dockerhub_password}"
             sh 'mvn docker:build -DpushImage'
         }
