@@ -1,16 +1,15 @@
 node {
-    def myMavenContainer = docker.image('bhhan87/maven:jdk8-alpine')
-    myMavenContainer.pull()
-    stage('prepare'){
+    def mvnHome
+
+    stage('Preparation') {
+        mvnHome = tool 'M3'
+    }
+    stage('Checkout') {
         checkout scm
     }
-
     stage('test and package'){
-        myMavenContainer.inside {
-            sh 'mvn clean package'
-        }
-    }
-    
+        sh 'mvn clean package'
+    }    
     stage('docker build and push'){
         sh 'mvn clean'
     }
