@@ -1,12 +1,6 @@
-server:
-  port: 5555
-
 spring:
   application:
-    name: gateway
-  cloud:
-    config:
-      uri: http://192.168.94.128:8888
+    name: oauth2server
 eureka:
   client:
     service-url:

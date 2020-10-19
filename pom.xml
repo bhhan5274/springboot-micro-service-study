@@ -8,6 +8,8 @@
         <module>config-server</module>
         <module>shipping</module>
         <module>gateway</module>
+        <module>oauth2-server</module>
+        <module>utils</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

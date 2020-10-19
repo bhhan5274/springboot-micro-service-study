@@ -1,0 +1,38 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    database: postgresql
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    url: jdbc:postgresql://192.168.94.128:5432/sonar
+    driver-class-name: org.postgresql.Driver
+    username: sonar
+    password: sonarpasswd
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+
+oauth2:
+  jwtSigningKey: HelloWorld
+  name: bhhan
+  email: hbh5274@gmail.com
+  password: 12345678
+  clientId: a9e0318d-13c7-4036-8d29-abc2adbb4917
+  clientSecret: de5038aa-c0b7-4e32-ac02-c18ad841f0b3
+  roles: USER,ADMIN
+
+logging:
+  level:
+    root: info
+    org.hibernate.type: trace
+
+server:
+  port: 8090

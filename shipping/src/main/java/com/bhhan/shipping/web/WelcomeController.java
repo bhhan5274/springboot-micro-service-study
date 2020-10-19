@@ -2,6 +2,7 @@ package com.bhhan.shipping.web;
 
 import com.bhhan.shipping.config.CustomProperties;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ public class WelcomeController {
 
     @GetMapping
     public String welcome(){
-        randomlyRunLong();
+        //randomlyRunLong();
         return customProperties.getUsername();
     }
 

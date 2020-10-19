@@ -3,6 +3,7 @@ package com.bhhan.order.service;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -12,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
  * Github : http://github.com/bhhan5274
  */
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 @DefaultProperties(threadPoolKey = "shippingRestTemplateClient")
@@ -27,6 +29,7 @@ public class ShippingRestTemplateClient {
     }
 
     private String fallbackGetWelcomeMessage(){
+        log.info("===========================[Fallback Message]===========================");
         return "Hello World!!!";
     }
 }

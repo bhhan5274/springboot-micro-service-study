@@ -1,9 +1,13 @@
 spring:
   application:
     name: shipping
+  cloud:
+    config:
+      uri: http://192.168.94.128:8888
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://192.168.94.128:8761/eureka/
+
 server:
   port: 9004

@@ -1,4 +1,4 @@
-package com.bhhan.order.config;
+package com.bhhan.shipping.config;
 
 import com.bhhan.utils.CustomRestTemplateUtils;
 import com.bhhan.utils.hystrix.HystrixThreadLocalConfiguration;
