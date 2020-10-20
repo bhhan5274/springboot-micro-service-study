@@ -22,4 +22,5 @@ java -Deureka.client.serviceUrl.defaultZone=$EUREKA_SERVER_URI \
  -Dspring.profiles.active=$PROFILE \
  -Dserver.port=$PORT \
  -Dspring.cloud.config.uri=$CONFIG_SERVER_URI \
+ -Dspring.cloud.stream.kafka.binder.brokers=$KAFKA_BROKER_URI \
  -jar /usr/local/shipping/@project.build.finalName@.jar
