@@ -50,3 +50,14 @@ services:
       EUREKA_SERVER_PORT: "8761"
       CONFIG_SERVER_URI: "http://configserver:8888"
       CONFIG_SERVER_PORT: "8888"
+  oauth2:
+    image: bhhan87/study-oauth2server:v1.0.0
+    ports:
+      - "8090:8090"
+    environment:
+      PORT: "8090"
+      PROFILE: "default"
+      EUREKA_SERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKA_SERVER_PORT: "8761"
+      CONFIG_SERVER_URI: "http://configserver:8888"
+      CONFIG_SERVER_PORT: "8888"

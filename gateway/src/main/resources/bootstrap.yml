@@ -6,8 +6,8 @@ spring:
     name: gateway
   cloud:
     config:
-      uri: http://192.168.94.128:8888
+      uri: http://localhost:8888
 eureka:
   client:
     service-url:
-      defaultZone: http://192.168.94.128:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/

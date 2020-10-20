@@ -6,7 +6,7 @@ package com.bhhan.utils;
  */
 
 public class UserContext {
-    public static final String AUTH_TOKEN     = "Authorization";
+    public static final String AUTH_TOKEN = "Authorization";
     private String authToken;
 
     public String getAuthToken() { return authToken; }

@@ -17,3 +17,27 @@ services:
       CONFIG_SERVER_GIT_SEARCH_PATHS: "order,shipping,gateway"
       CONFIG_SERVER_USERNAME: "username"
       CONFIG_SERVER_PASSWORD: "password"
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    restart: always
+    ports:
+      - 2181:2181
+  kafkaserver:
+    image: wurstmeister/kafka
+    container_name: kafka
+    restart: always
+    ports:
+      - 9092:9092
+    depends_on:
+      - zookeeper
+    links:
+      - zookeeper:zookeeper
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+  logspout:
+    image: gliderlabs/logspout
+    command: syslog://logs2.papertrailapp.com:42847
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
