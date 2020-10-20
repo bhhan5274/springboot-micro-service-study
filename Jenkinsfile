@@ -14,7 +14,7 @@ node {
         }    
         stage('docker build and push'){
             sh "docker login -u ${params.dockerhub_id} -p ${params.dockerhub_password}"
-            sh "'${mvnHome}/bin/mvn' docker:build -DpushImage"
+            sh "'${mvnHome}/bin/mvn' docker:build -DpushImage -pl config-server,eureka-server,gateway,oauth2-server,order,shipping"
         }
         stage('send success email'){
             currentBuild.result = "SUCCESS";    
