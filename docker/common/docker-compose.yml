@@ -67,17 +67,6 @@ services:
       CONFIG_SERVER_PORT: "8888"
       KAFKA_BROKER_URI: "kafkaserver:9092"
       ZIPKIN_BASE_URI: "http://zipkin:9411"
-  zipkinserver:
-    image: bhhan87/study-zipkinserver:v1.0.0
-    ports:
-      - "9411:9411"
-    environment:
-      PORT: "9411"
-      PROFILE: "default"
-      EUREKA_SERVER_URI: "http://eurekaserver:8761/eureka/"
-      EUREKA_SERVER_PORT: "8761"
-      CONFIG_SERVER_URI: "http://configserver:8888"
-      CONFIG_SERVER_PORT: "8888"
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper
