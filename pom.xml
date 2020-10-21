@@ -10,6 +10,7 @@
         <module>gateway</module>
         <module>oauth2-server</module>
         <module>utils</module>
+        <module>zipkin-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -34,11 +35,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
 
         <dependency>

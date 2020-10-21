@@ -28,6 +28,7 @@ services:
       EUREKA_SERVER_PORT: "8761"
       CONFIG_SERVER_URI: "http://configserver:8888"
       CONFIG_SERVER_PORT: "8888"
+      ZIPKIN_BASE_URI: "http://zipkin:9411"
   oauth2:
     image: bhhan87/study-oauth2server:v1.0.0
     ports:
@@ -52,6 +53,7 @@ services:
       CONFIG_SERVER_URI: "http://configserver:8888"
       CONFIG_SERVER_PORT: "8888"
       KAFKA_BROKER_URI: "kafkaserver:9092"
+      ZIPKIN_BASE_URI: "http://zipkin:9411"
   shipping:
     image: bhhan87/study-shipping:v1.1.0
     ports:
@@ -64,6 +66,18 @@ services:
       CONFIG_SERVER_URI: "http://configserver:8888"
       CONFIG_SERVER_PORT: "8888"
       KAFKA_BROKER_URI: "kafkaserver:9092"
+      ZIPKIN_BASE_URI: "http://zipkin:9411"
+  zipkinserver:
+    image: bhhan87/study-zipkinserver:v1.0.0
+    ports:
+      - "9411:9411"
+    environment:
+      PORT: "9411"
+      PROFILE: "default"
+      EUREKA_SERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKA_SERVER_PORT: "8761"
+      CONFIG_SERVER_URI: "http://configserver:8888"
+      CONFIG_SERVER_PORT: "8888"
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper
@@ -98,3 +112,7 @@ services:
       POSTGRES_PASSWORD: sonarpasswd
     volumes:
       - /var/postgres-data:/var/lib/postgresql/data
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
