@@ -1,4 +1,4 @@
-package com.bhhan.order;
+package com.bhhan;
 
 import com.bhhan.order.config.OAuth2Properties;
 import org.springframework.boot.SpringApplication;
